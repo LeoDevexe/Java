@@ -1,0 +1,39 @@
+package com.krakedev;
+
+public class TestProducto {
+
+	public static void main(String[] args) {
+		
+		Producto productoA;
+		Producto productoB;
+		Producto productoC;
+		//Instanciamos 3 objetos de la clase Producto 
+		productoA = new Producto();
+		productoB = new Producto();
+		productoC = new Producto();
+		
+		//Modificamos los atributos de los productos
+			
+	productoA.nombre ="Loratadina";
+	productoA.descripcion ="Antialérgico";
+	productoA.precio = (float) 1.50;
+	productoA.stockActual =100;
+	
+	//Producto B
+	productoB.nombre ="Loratadina";
+	productoB.descripcion ="Antialérgico";
+	productoB.precio = (float) 1.50;	
+	productoB.stockActual =100;
+	
+	//Producto C
+	productoC.descripcion="Antialérgico";
+	productoC.descripcion="Antialérgico";
+	productoC.descripcion="Antialérgico";
+	productoC.descripcion="Antialérgico";
+
+		
+	
+
+	}
+
+}

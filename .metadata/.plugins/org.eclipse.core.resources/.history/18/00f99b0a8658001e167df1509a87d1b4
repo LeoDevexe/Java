@@ -1,0 +1,12 @@
+package com.krakedev;
+
+public class TestPersona {
+
+	public static void main(String[] args) {
+		String persona ;
+		Persona persona = new Persona ();
+		
+		
+	}
+
+}

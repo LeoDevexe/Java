@@ -1,0 +1,16 @@
+package com.krakedev;
+
+public class TestProducto {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Producto productoA ;
+		Producto productoB;
+		Producto productoC;
+	
+		
+
+	}
+
+}

@@ -1,0 +1,12 @@
+package com.krakedev;
+
+public class TestAuto {
+
+	public static void main(String[] args) {
+		Auto a1 ;
+		Auto a2 ;
+		a=new Auto();
+		
+	}
+
+}

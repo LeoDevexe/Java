@@ -1,0 +1,13 @@
+package com.krakedev;
+
+public class TestPersona {
+
+	public static void main(String[] args) {
+
+		Persona p ; //1.- Variable p de tipo Persona 
+		new Persona ();
+		
+		
+	}
+
+}
