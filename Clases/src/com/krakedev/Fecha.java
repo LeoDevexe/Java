@@ -5,8 +5,8 @@ public class Fecha {
 	private int anio ;
 	private int dia ;
 	
-	public Fecha () {
-		
+	public Fecha (int mes) {
+		this.mes=mes;
 	}
 	
 	public int getMes() {

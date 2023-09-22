@@ -2,8 +2,8 @@ package com.krakedev;
 
 public class Producto {
 
-	public Producto () {
-
+	public Producto (String nombre) {
+		this.nombre=nombre;
 	}
 	public String getNombre() {
 		return nombre;

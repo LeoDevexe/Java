@@ -8,9 +8,9 @@ public class TestProducto {
 		Producto productoB;
 		Producto productoC;
 		// Instanciamos 3 objetos de la clase Producto
-		productoA = new Producto();
-		productoB = new Producto();
-		productoC = new Producto();
+		productoA = new Producto("Ketoconazol");
+		productoB = new Producto("Levozetrina");
+		productoC = new Producto("Risperidona");
 
 		// Modificamos los atributos de los productos
 
