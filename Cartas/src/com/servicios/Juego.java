@@ -1,70 +1,65 @@
 package com.servicios;
 
-
 import java.util.ArrayList;
-import java.util.HashMap;
 import com.entidades.Carta;
 import com.entidades.Naipe;
-
 
 public class Juego {
     private Naipe naipe;
     private ArrayList<Carta> naipeBarajado;
-    private HashMap<String, ArrayList<Carta>> cartasJugadores;
+    private ArrayList<ArrayList<Carta>> cartasJugadores;
 
-    public Juego(String[] jugadores) {
+    public Juego(ArrayList<String> jugadores) {
         naipe = new Naipe();
         naipeBarajado = naipe.barajar();
-        cartasJugadores = new HashMap<>();
+        cartasJugadores = new ArrayList<>();
 
-        for (String jugador : jugadores) {
-            cartasJugadores.put(jugador, new ArrayList<>());
+        for (int i = 0; i < jugadores.size(); i++) {
+            cartasJugadores.add(new ArrayList<>());
         }
     }
-
-    public HashMap<String, ArrayList<Carta>> getCartasJugadores() {
-        return cartasJugadores;
-    }
-
 
     public void entregarCartas(int cartasPorJugador) {
         int numJugadores = cartasJugadores.size();
         int numCartas = cartasPorJugador * numJugadores;
 
-
-
         int jugadorIndex = 0;
         for (int i = 0; i < numCartas; i++) {
-            String idJugador = "jugador " + (jugadorIndex + 1);
             Carta carta = naipeBarajado.get(i);
-            cartasJugadores.get(idJugador).add(carta);
+            cartasJugadores.get(jugadorIndex).add(carta);
 
             jugadorIndex = (jugadorIndex + 1) % numJugadores;
         }
     }
-        public int devolverTotal(String idJugador) {
-            int total = 0;
-            ArrayList<Carta> cartas = cartasJugadores.get(idJugador);
 
-            for (Carta carta : cartas) {
-                total += carta.getNumero().getValor();
-            }
+    public int devolverTotal(int jugadorIndex) {
+        int total = 0;
+        ArrayList<Carta> cartas = cartasJugadores.get(jugadorIndex);
 
-            return total;
+        for (Carta carta : cartas) {
+            total += carta.getNumero().getValor();
         }
 
-public String determinarGanador() {
-    String idGanador = "";
-    int sumaGanador = 0;
+        return total;
+    }
 
-    for (String idJugador : cartasJugadores.keySet()) {
-        int suma = devolverTotal(idJugador);
+    public String determinarGanador() {
+        int sumaGanador = 0;
+        int ganadorIndex = -1;
 
-        if (suma > sumaGanador) {
-            idGanador = idJugador;
-            sumaGanador = suma;
+        for (int i = 0; i < cartasJugadores.size(); i++) {
+            int suma = devolverTotal(i);
+
+            if (suma > sumaGanador) {
+                ganadorIndex = i;
+                sumaGanador = suma;
+            }
+        }
+
+        if (ganadorIndex != -1) {
+            return "Jugador " + (ganadorIndex + 1);
+        } else {
+            return "No hay ganador";
         }
     }
-    return idGanador;
-}
 }
