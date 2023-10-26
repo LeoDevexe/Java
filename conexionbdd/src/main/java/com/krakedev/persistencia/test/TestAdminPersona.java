@@ -16,7 +16,7 @@ public class TestAdminPersona {
 		Persona p = new Persona("1716231379", "Julio", "Jaramillo", ec);
 		try {
 			Date fechaNac = Convertidor.convertirFecha("2020/12/23");
-			Date horaNac = Convertidor.convertirAHora("09:23");
+			Date horaNac = Convertidor.convertirHora("09:23");
 
 			p.setFechaNacimiento(fechaNac);
 			p.setHoraNacimiento(horaNac);

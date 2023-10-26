@@ -15,7 +15,7 @@ public class TestActualizar {
 		Persona p = new Persona("0201813573", "Esteban", "SuperActualizado", ec);
 		try {
 			Date fechaNac = Convertidor.convertirFecha("2040/12/23");
-			Date horaNac = Convertidor.convertirAHora("01:21");
+			Date horaNac = Convertidor.convertirHora("01:21");
 
 			p.setFechaNacimiento(fechaNac);
 			p.setHoraNacimiento(horaNac);

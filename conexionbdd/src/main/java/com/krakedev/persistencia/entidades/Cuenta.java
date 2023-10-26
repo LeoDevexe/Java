@@ -4,46 +4,44 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 public class Cuenta {
-
-	private String numeroCuenta;
-	private String cedula;
-	private Date fechaCreacion;
+	private String numero_cuenta;
+	private Usuario usuario;
+	private Date fecha_creacion;
 	private BigDecimal saldo;
-	
-	
-	
-	
 
-	public Cuenta(String numeroCuenta, String cedula, Date fechaCreacion, BigDecimal saldo) {
+	public Cuenta() {
 		super();
-		this.numeroCuenta = numeroCuenta;
-		this.cedula = cedula;
-		this.fechaCreacion = fechaCreacion;
-		this.saldo = saldo;
 	}
 
-	public String getNumeroCuenta() {
-		return numeroCuenta;
+	public Cuenta(String numero_cuenta, Usuario usuario) {
+		super();
+		this.numero_cuenta = numero_cuenta;
+		this.usuario = usuario;
+
 	}
 
-	public void setNumeroCuenta(String numeroCuenta) {
-		this.numeroCuenta = numeroCuenta;
+	public String getNumero_cuenta() {
+		return numero_cuenta;
 	}
 
-	public String getCedula() {
-		return cedula;
+	public void setNumero_cuenta(String numero_cuenta) {
+		this.numero_cuenta = numero_cuenta;
 	}
 
-	public void setCedula(String cedula) {
-		this.cedula = cedula;
+	public Usuario getUsuario() {
+		return usuario;
 	}
 
-	public Date getFechaCreacion() {
-		return fechaCreacion;
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
-	public void setFechaCreacion(Date fechaCreacion) {
-		this.fechaCreacion = fechaCreacion;
+	public Date getFecha_creacion() {
+		return fecha_creacion;
+	}
+
+	public void setFecha_creacion(Date fecha_creacion) {
+		this.fecha_creacion = fecha_creacion;
 	}
 
 	public BigDecimal getSaldo() {
@@ -56,7 +54,7 @@ public class Cuenta {
 
 	@Override
 	public String toString() {
-		return "Cuenta [numeroCuenta=" + numeroCuenta + ", cedula=" + cedula + ", fechaCreacion=" + fechaCreacion
+		return "Cuenta [numero_cuenta=" + numero_cuenta + ", usuario=" + usuario + ", fecha_creacion=" + fecha_creacion
 				+ ", saldo=" + saldo + "]";
 	}
 
