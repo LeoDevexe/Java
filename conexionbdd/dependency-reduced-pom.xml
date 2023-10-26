@@ -4,7 +4,7 @@
   <groupId>com.krakedev</groupId>
   <artifactId>conexionbdd</artifactId>
   <name>conexionbdd</name>
-  <version>1.0.0</version>
+  <version>1.0.0.0</version>
   <url>http://www.example.com</url>
   <build>
     <plugins>

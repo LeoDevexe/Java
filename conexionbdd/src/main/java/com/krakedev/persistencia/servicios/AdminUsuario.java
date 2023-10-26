@@ -3,39 +3,37 @@ package com.krakedev.persistencia.servicios;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.sql.Time;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.krakedev.persistencia.entidades.Persona;
+import com.krakedev.persistencia.entidades.Usuario;
 import com.krakedev.persistencia.utils.ConexionBDD;
 
-public class AdminPersonas {
+public class AdminUsuario {
+
 	private static Logger LOGGER = LogManager.getLogger(AdminPersonas.class);
 
-	public static void insertar(Persona persona) throws Exception {
+	public static void insertar(Usuario usuario) throws Exception {
 		Connection con = null;
 		PreparedStatement ps;
-		LOGGER.trace("Persona a insertar---" + persona);
+		LOGGER.trace("Usuaario a insertar---" + usuario);
 		try {
 			// abrir conexion
 			con = ConexionBDD.conectar();
 
 			ps = con.prepareStatement(
-					"insert into persona(cedula,nombre,apellido,estado_civil_codigo,numero_hijos,estatura,cantidad_a,"
-							+ "fecha_nacimiento,hora_nacimiento)" + "values(?,?,?,?,?,?,?,?,?)");
+					"insert into usuario(cedula,nombre,apellido,tipo_cuenta,limite_credito)" + "values(?,?,?,?,?)");
 
-			ps.setString(1, persona.getCedula());
-			ps.setString(2, persona.getNombre());
-			ps.setString(3, persona.getApellido());
-			ps.setString(4, persona.getEstadoCivil().getCodigo());
-			ps.setInt(5, persona.getNumeroHijos());
-			ps.setDouble(6, persona.getEstatura());
-			ps.setBigDecimal(7, persona.getCantidadAhorrada());
-			ps.setDate(8, new java.sql.Date(persona.getFechaNacimiento().getTime()));
-			ps.setTime(9, new Time(persona.getHoraNacimiento().getTime()));
+			ps.setString(1, usuario.getCedula());
+			ps.setString(2, usuario.getNombre());
+			ps.setString(3, usuario.getApellido());
+			ps.setString(4, usuario.getTipoCuenta());
+			ps.setInt(5, usuario.getLimiteCredito());
+
 			ps.executeUpdate();
+			
+			LOGGER.warn("usuario agregado correctamente---");
 
 		} catch (Exception e) {
 
@@ -55,32 +53,26 @@ public class AdminPersonas {
 
 	}
 
-	public static void actualizar(Persona persona) throws Exception {
+	public static void actualizar(Usuario usuario) throws Exception {
 
 		Connection con = null;
 		PreparedStatement ps;
-		LOGGER.trace("Persona a actualizar---" + persona);
+		LOGGER.trace("Usuario a actualizar---" + usuario);
 		try {
 			// abrir conexion
 			con = ConexionBDD.conectar();
 
 			ps = con.prepareStatement(
-					
-					"UPDATE persona SET nombre=?, apellido=?, estado_civil_codigo=?, numero_hijos=?, estatura=?, "
-					+ "cantidad_a=?, fecha_nacimiento=?, hora_nacimiento=? WHERE cedula=?");
-					
 
-			ps.setString(9, persona.getCedula());
-			ps.setString(1, persona.getNombre());
-			ps.setString(2, persona.getApellido());
-			ps.setString(3, persona.getEstadoCivil().getCodigo());
-			ps.setInt(4, persona.getNumeroHijos());
-			ps.setDouble(5, persona.getEstatura());
-			ps.setBigDecimal(6, persona.getCantidadAhorrada());
-			ps.setDate(7, new java.sql.Date(persona.getFechaNacimiento().getTime()));
-			ps.setTime(8, new Time(persona.getHoraNacimiento().getTime()));
+					"UPDATE usuario SET nombre=?, apellido=?, tipo_cuenta=?, limite_credito=? WHERE cedula=?");
+
+			ps.setString(5, usuario.getCedula());
+			ps.setString(1, usuario.getNombre());
+			ps.setString(2, usuario.getApellido());
+			ps.setString(3, usuario.getTipoCuenta());
+			ps.setInt(4, usuario.getLimiteCredito());
 			ps.executeUpdate();
-			LOGGER.warn("Persona actualizada correctamente---" );
+			LOGGER.warn("usuario actualizado correctamente---");
 
 		} catch (Exception e) {
 
@@ -99,9 +91,7 @@ public class AdminPersonas {
 		}
 
 	}
-	
-	
-	
+
 	public static void eliminar(String cedula) throws Exception {
 
 		Connection con = null;
@@ -111,14 +101,13 @@ public class AdminPersonas {
 			con = ConexionBDD.conectar();
 
 			ps = con.prepareStatement(
-					
-					"DELETE FROM persona WHERE cedula = ?");
-					
+
+					"DELETE FROM usuario WHERE cedula = ?");
 
 			ps.setString(1, cedula);
-			
+
 			ps.executeUpdate();
-			LOGGER.warn("Persona eliminada correctamente---" );
+			LOGGER.warn("Usuario eliminado correctamente---");
 
 		} catch (Exception e) {
 
@@ -137,7 +126,5 @@ public class AdminPersonas {
 		}
 
 	}
-	
-	
-	
+
 }

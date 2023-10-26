@@ -9,7 +9,7 @@ import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class TestConexion {
+public class TestConexion3 {
 
 	public static void main(String[] args) {
 		Connection conection = null;
@@ -21,17 +21,10 @@ public class TestConexion {
 			System.out.println("conexion exitosa");
 
 			ps = conection.prepareStatement(
-					"insert into persona(cedula,nombre,apellido,estado_civil_codigo,numero_hijos,estatura,cantidad_a,"
-					+ "fecha_nacimiento,hora_nacimiento)"
-							+ "values(?,?,?,?,?,?,?,?,?)");
+					"insert into cuentas(numero_cuenta,cedula,fecha_creacion,saldo)" + "values(?,?,?,?)");
 
-			ps.setString(1, "0201813573");
-			ps.setString(2, "Rosalia");
-			ps.setString(3, "Perez");
-			ps.setString(4, "U");
-			ps.setInt(5, 2);
-			ps.setDouble(6, 1.56);
-			ps.setBigDecimal(7, new BigDecimal(1200.45));
+			ps.setString(1, "22222");
+			ps.setString(2, "1111111111");
 
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss");
 
@@ -50,11 +43,13 @@ public class TestConexion {
 				Time timeSQL = new Time(fechaMilis);
 				System.out.println(timeSQL);
 
-				ps.setDate(8, fechaSQL);
-				ps.setTime(9, timeSQL);
+				ps.setDate(3, fechaSQL);
+
+				ps.setBigDecimal(4, new BigDecimal(100));
 
 				ps.executeUpdate();
 				System.out.println("Executa insert");
+
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
