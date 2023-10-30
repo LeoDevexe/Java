@@ -8,27 +8,24 @@ import com.krakedev.persistencia.entidades.Persona;
 import com.krakedev.persistencia.servicios.AdminPersonas;
 import com.krakedev.persistencia.utils.Convertidor;
 
-//System.out.printLn solo se va a usar en los test 
+//System.out.println solo se va a poder usar en los tests  
 public class TestAdminPersona {
 
 	public static void main(String[] args) {
-		EstadoCivil ec = new EstadoCivil("U", "Union Libre");
-		Persona p = new Persona("1716231379", "Julio", "Jaramillo", ec);
+		EstadoCivil ec = new EstadoCivil("U","Union Libre");
+		Persona p = new Persona ("1724879837","Julio","Jaramillo",ec);
 		try {
-			Date fechaNac = Convertidor.convertirFecha("2020/12/23");
-			Date horaNac = Convertidor.convertirHora("09:23");
-
+			Date fechaNac=Convertidor.convertirFecha("2020/12/23");
+			Date horaNac=Convertidor.convertirHora("12:23:05");
+			
 			p.setFechaNacimiento(fechaNac);
 			p.setHoraNacimiento(horaNac);
 			p.setCantidadAhorrada(new BigDecimal(1230.45));
 			p.setNumeroHijos(50);
-
 			AdminPersonas.insertar(p);
 		} catch (Exception e) {
-
-			System.out.println("error en el sistema: " + e.getMessage());
+			System.out.println("error en el sistema: "+e.getMessage());
 		}
-
 	}
 
 }

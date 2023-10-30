@@ -1,10 +1,12 @@
 package com.krakedev.persistencia.entidades;
 
 public class EstadoCivil {
-
 	private String codigo;
 	private String descripcion;
-
+	
+	public EstadoCivil() {
+	}
+	
 	public EstadoCivil(String codigo, String descripcion) {
 		super();
 		this.codigo = codigo;
@@ -31,7 +33,5 @@ public class EstadoCivil {
 	public String toString() {
 		return "EstadoCivil [codigo=" + codigo + ", descripcion=" + descripcion + "]";
 	}
-	
-	
 
 }

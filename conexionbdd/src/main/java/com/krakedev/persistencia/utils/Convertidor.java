@@ -8,37 +8,36 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class Convertidor {
-	private static final String FORMATO_fecha = "yyyy/MM/dd";
-	private static final String FORMATO_hora = "hh:mm";
-	private static final Logger LOGGER = LogManager.getFormatterLogger(Convertidor.class);
-
-
+	private static final String FORMATO_FECHA = "yyyy/MM/dd";
+	private static final String FORMATO_HORA = "hh:mm:ss";
+	private static final  Logger LOGGER = LogManager.getLogger(Convertidor.class);
+	
 	public static Date convertirFecha(String fechaStr) throws Exception {
-		SimpleDateFormat sdf = new SimpleDateFormat(FORMATO_fecha);
+
+		SimpleDateFormat sdf = new SimpleDateFormat(FORMATO_FECHA);
 		Date fechaDate = null;
 		try {
 			LOGGER.debug("Convirtiendo fecha "+fechaStr);
 			fechaDate = sdf.parse(fechaStr);
 			LOGGER.debug("Fecha convertida "+fechaDate);
-			// captura la excepcion
 		} catch (ParseException e) {
-			LOGGER.error("La fecha no tiene el formato correcto "+fechaStr, e);
-			// propagamos // lanzo una exepcion con un mensaje de usuario
+			LOGGER.error("La fecha no tiene el formato correcto "+fechaStr,e);
 			throw new Exception("La fecha no tiene el formato correcto "+fechaStr);
 		}
 		return fechaDate;
 	}
-	
-	public static Date convertirHora(String horaStr) throws Exception {
-		SimpleDateFormat sdf = new SimpleDateFormat(FORMATO_hora);
+
+	public static Date convertirHora(String horaStr) throws Exception {	
+
+		SimpleDateFormat sdf = new SimpleDateFormat( FORMATO_HORA);
 		Date horaDate = null;
 		try {
+			LOGGER.debug("Convirtiendo hora "+horaStr);
 			horaDate = sdf.parse(horaStr);
-			// captura la excepcion
+			LOGGER.debug("hora convertida "+horaDate);
 		} catch (ParseException e) {
-			LOGGER.error("La hora no tiene el formato correcto "+horaDate, e);
-			// propagamos // lanzo una exepcion con un mensaje de usuario
-			throw new Exception("La hora no tiene el formato correcto "+horaDate);
+			LOGGER.error("La hora no tiene el formato correcto "+horaStr,e);
+			throw new Exception("La fecha no tiene el formato correcto "+horaStr);
 		}
 		return horaDate;
 	}
