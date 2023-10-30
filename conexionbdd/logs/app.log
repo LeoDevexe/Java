@@ -1,0 +1,13 @@
+08:10:31.283 [main] DEBUG com.krakedev.persistencia.utils.ConexionBDD - conexion exitosa
+08:10:31.324 [main] ERROR com.krakedev.persistencia.servicios.AdminPersonas - Error al consultar por nombre
+org.postgresql.util.PSQLException: ERROR: no existe la columna «codigo»
+  Position: 31
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713) ~[postgresql-42.6.0.jar:42.6.0]
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401) ~[postgresql-42.6.0.jar:42.6.0]
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368) ~[postgresql-42.6.0.jar:42.6.0]
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:498) ~[postgresql-42.6.0.jar:42.6.0]
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:415) ~[postgresql-42.6.0.jar:42.6.0]
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:190) ~[postgresql-42.6.0.jar:42.6.0]
+	at org.postgresql.jdbc.PgPreparedStatement.executeQuery(PgPreparedStatement.java:134) ~[postgresql-42.6.0.jar:42.6.0]
+	at com.krakedev.persistencia.servicios.AdminPersonas.buscarPorCodigo(AdminPersonas.java:295) [classes/:?]
+	at com.krakedev.persistencia.test.TestPrimariKey.main(TestPrimariKey.java:11) [classes/:?]
