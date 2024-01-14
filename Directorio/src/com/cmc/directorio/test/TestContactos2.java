@@ -9,10 +9,10 @@ public class TestContactos2 {
 	public static void main(String[] args) {
 		Contacto masPesado;
 		boolean compararOperadora;
-		Telefono telf1 = new Telefono("claro", "0956321236", 15);
+		Telefono telf1 = new Telefono("claro", "09863324578", 15);
 		Telefono telf2 = new Telefono("movi","0956321556", 20);
 		
-		Contacto c1 = new Contacto("Jhon", "Obando", telf1, 70);
+		Contacto c1 = new Contacto("Leonardo", "Alarcon", telf1, 70);
 		Contacto c2 = new Contacto("Javier", "Burrai", telf2, 90);
 		
 		AdminContactos ac = new AdminContactos();

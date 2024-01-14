@@ -12,7 +12,7 @@ public class TestContactos1 {
 		Telefono telf1 = new Telefono("claro", "0956321236", 15);
 		Telefono telf2 = new Telefono("claro","0956321556", 20);
 		
-		Contacto c1 = new Contacto("Jhon", "Obando", telf1, 100);
+		Contacto c1 = new Contacto("Leonardo", "Alarcon", telf1, 100);
 		Contacto c2 = new Contacto("Javier", "Burrai", telf2, 90);
 		
 		AdminContactos ac = new AdminContactos();
