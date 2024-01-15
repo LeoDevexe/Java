@@ -8,7 +8,7 @@ public class TestContacto1 {
 	public static void main(String[] args) {
 		Telefono telef = new Telefono("movi","0953245625", 15);
 		
-		Contacto c = new Contacto("Jhon", "Obando", telef, 1.60);
+		Contacto c = new Contacto("Leonardo", "Alarcon", telef, 1.60);
 		
 		System.out.println("-----------Contacto-----------");
 		System.out.println("Nombre : " + c.getNombre());
